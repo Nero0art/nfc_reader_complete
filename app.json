@@ -1,0 +1,91 @@
+{
+  "expo": {
+    "name": "NFCryptoBreak",
+    "slug": "nfcryptobreak-v11",
+    "version": "11.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1a1a1a"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nfcryptobreak.app",
+      "infoPlist": {
+        "NFCReaderUsageDescription": "This app uses NFC to read and analyze NFC tags for security research.",
+        "NSLocalNetworkUsageDescription": "This app uses local network for Proxmark3 communication.",
+        "NSBonjourServices": [
+          "_http._tcp",
+          "_https._tcp"
+        ]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1a1a1a"
+      },
+      "package": "com.nfcryptobreak.app",
+      "permissions": [
+        "android.permission.NFC",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.USB_PERMISSION",
+        "android.permission.USB_ACCESSORY_PERMISSION",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.VIBRATE",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ],
+      "intentFilters": [
+        {
+          "action": "android.nfc.action.TECH_DISCOVERED",
+          "category": [
+            "android.intent.category.DEFAULT"
+          ],
+          "data": {
+            "mimeType": "application/octet-stream"
+          }
+        },
+        {
+          "action": "android.nfc.action.TAG_DISCOVERED",
+          "category": [
+            "android.intent.category.DEFAULT"
+          ]
+        }
+      ],
+      "minSdkVersion": 21,
+      "targetSdkVersion": 34
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true,
+            "minSdkVersion": 21,
+            "targetSdkVersion": 34,
+            "buildToolsVersion": "34.0.0",
+            "compileSdkVersion": 34
+          }
+        }
+      ],
+      [
+        "expo-dev-client"
+      ]
+    ],
+    "description": "Advanced NFC Security Research Tool - Pocket Proxmark v11.0"
+  }
+}
